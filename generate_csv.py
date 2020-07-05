@@ -45,36 +45,13 @@ def convert_test_file1(input_file, output_file):
                 print(row)
                 row_accessor(row,'123')
                 writer.writerow(row)
-    # fname = 'code_for_' + input_file.split('.')[0]+ '_csv.py'
-    # line1 = 'import csv\n\n'
-    # line2 = "with open('"+input_file+"', newline='') as csvfile:\n"
-    # line3 = "\treader = csv.DictReader(csvfile)\n"
-    # line4 = "\twith open('output_testfiles/translated_bde.csv', 'w', newline='') as csvfile:\n"
-    # line5 = "\t\tfieldnames = reader.fieldnames\n\t\twriter = csv.DictWriter(csvfile, fieldnames=fieldnames)\n\t\twriter.writeheader()\n\t\tfor row in reader:\n\t\t\twriter.writerow(row)"
-    #
-    # with open(fname, 'w') as f:
-    #     f.write(line1.format(line1))
-    #     f.write(line2.format(line2))
-    #     f.write(line3.format(line3))
-    #     f.write(line4.format(line4))
-    #     f.write(line5.format(line5))
-
-    # import code_for_generating_csv_file
-    # print(code_for_generating_csv_file.data)
 
 
 def convert_test_file2(input_file, output_file,  mode):
 
     with open(input_file, newline='') as csvfile:
         reader = csv.DictReader(csvfile)
-    #     # print(reader.fieldnames)
-    #     with open('tests/output_testfiles/translated_bde.csv', 'w', newline='') as csvfile:
-    #         fieldnames = reader.fieldnames
-    #         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-    #         writer.writeheader()
-    #         for row in reader:
-    #             row_accessor(row,'123')
-    #             writer.writerow(row)
+        # this is where the writing part into the .py file begins
         fname = 'code_to generate_translated_DE_files_csv.py'# + input_file.split('.')[0]+ '_csv.py'
         line1 = 'import csv'
         line2 = "\n\nwith open('" + output_file +"', 'w', newline='') as csvfile:\n"
