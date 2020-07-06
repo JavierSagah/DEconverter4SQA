@@ -1,3 +1,0 @@
-Account_ID,Account_Full_Name,Location_ID,Service_Point_ID,Meter_ID,Meter_Manufacturer,Meter_Model,Register_Number,Register_Unit_Of_Measure,Register_Resolution,Meter_Install_Date,Meter_Removal_Date,SA_Start_Date,SA_End_Date,Endpoint_SN,Endpoint_Type,Endpoint_Install_Date,Endpoint_Removal_Date
-J1234,Javier,LJAVCONDOS,3,M1234,Badger Meter,Unknown,,GAL,10,2018-05-05,,2018-06-01,2019-08-01,EPSN12345,V,2019-06-25,
-DHOLM,Dan,LJAVCONDOS,3,,,,,,,,,2019-08-02,,,,,

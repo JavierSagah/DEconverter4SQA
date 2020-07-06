@@ -31,7 +31,7 @@ def make_new_data_dic():
     dic = input(str('Enter your values in dictioanry form {"header" : "value", ...} or hit enter to skip to the next row: '))
     return dic
 
-
+# this version of the converter does not generate python code, it uses console inputs instead
 def convert_test_file1(input_file, output_file):
 
     with open(input_file, newline='') as csvfile:
@@ -47,6 +47,7 @@ def convert_test_file1(input_file, output_file):
                 writer.writerow(row)
 
 
+# this version of the converter generates python code for a csv file
 def convert_test_file2(input_file, output_file,  mode):
 
     with open(input_file, newline='') as csvfile:
@@ -70,10 +71,30 @@ def convert_test_file2(input_file, output_file,  mode):
                 f.write("\twriter.writerow("+str(row)+")\n")
 
 
-# generate_test_file(suite_test_id)
-# convert_test_file1('tests/test_input/j_install_DE1.csv', 'tests/output_testfiles/translated_bde.csv')
-# convert_test_file2('tests/test_input/j_install_DE1.csv', 'tests/output_testfiles/translated_bde1.csv', 'w')
-# convert_test_file2('tests/test_input/test.csv', 'tests/output_testfiles/translated_bde2.csv', 'a')
+#### Traversing files and subdirs in a directory as a tree####
+# # this is one way to traverse files in a directory using glob + absolute path
+# import glob
+#
+# path = 'C:\\Users\\saldarrs\\Documents\\CVSTranslator_inPython for DE files project\\GenerateCSVfile\\'   # path to project
+#
+# files = [f for f in glob.glob(path + "**/*.csv", recursive=True)]
+#
+# for f in files:
+#     print(f)
+#
+# # this is another way to traverse files in a directory using os.walk() + absolute or relative paths
+# import os
+#
+# files = []
+# # r=root, d=directories, f = files
+# for r, d, f in os.walk("."):    # os.walk(arg) arg could be the absolute path to the directory you want or "." for the relative path of the project
+#     for file in f:
+#         if '.csv' in file:
+#             files.append(os.path.join(r, file))
+#
+# for f in files:
+#     print(f)
+#### End of traversing files and subdirs in a dir ####
 
 
 # #### Traversing a directory for its contents using absolute or relative paths ####
@@ -109,6 +130,9 @@ def convert_test_file2(input_file, output_file,  mode):
 # #### End of traversing dirs ####
 
 
+# this method traverses the input_dir (path of the directory to traverse) and calls the converter on every single csv
+# file in it, and then it uses the output_dir (path to the output directory) to define where the output csv files
+# will be put after the python file generated is run
 def de2py(input_dir, output_dir):
     import os
     dir_path = './' + input_dir
@@ -119,4 +143,5 @@ def de2py(input_dir, output_dir):
             mode = 'a'
 
 
+# example call of the de2py method
 de2py('tests/test_input', 'tests/output_testfiles')
