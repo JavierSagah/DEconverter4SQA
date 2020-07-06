@@ -53,7 +53,7 @@ def convert_test_file2(input_file, output_file,  mode):
     with open(input_file, newline='') as csvfile:
         reader = csv.DictReader(csvfile)
         # this is where the writing part into the .py file begins
-        fname = 'code_to generate_translated_DE_files_csv.py'# + input_file.split('.')[0]+ '_csv.py'
+        fname = 'code_to generate_translated_DE_files_csv.py'
         line1 = 'import csv'
         line2 = "\n\nwith open('" + output_file +"', 'w', newline='') as csvfile:\n"
         line3 = "\tfieldnames = " + str(reader.fieldnames) + "\n"
@@ -133,6 +133,7 @@ def convert_test_file2(input_file, output_file,  mode):
 # this method traverses the input_dir (path of the directory to traverse) and calls the converter on every single csv
 # file in it, and then it uses the output_dir (path to the output directory) to define where the output csv files
 # will be put after the python file generated is run
+# make sure the input_dir and the output_dir exist
 def de2py(input_dir, output_dir):
     import os
     dir_path = './' + input_dir
